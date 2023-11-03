@@ -1,38 +1,22 @@
 {
-  "name": "boilerplate-2310",
+  "name": "boilerplate-firebase-2311",
   "version": "1.0.0",
   "description": "TS and vite boilerplate",
   "main": "server/index.ts",
-  "repository": "https://github.com/kelly-keating/boilerplate-2310.git",
+  "repository": "https://github.com/kelly-keating/boilerplate-firebase-2311.git",
   "author": "Kelly Keating <keating.kel@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "run-s build:client build:server",
-    "build:client": "vite build",
-    "build:server": "tsc -p server/tsconfig.json",
-    "start": "node dist/server/server/index.js",
+    "build": "vite build",
     "test": "vitest",
     "coverage": "vitest --coverage",
-    "dev": "run-p dev:client dev:server",
-    "dev:client": "vite",
-    "dev:server": "nodemon server/index.ts",
-    "knex": "knex --knexfile ./server/db/knexfile.js",
+    "dev": "vite",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier --write ."
   },
   "eslintConfig": {
-    "extends": "@devacademy/eslint-config/react",
-    "ignorePatterns": [
-      "bundle.js"
-    ]
-  },
-  "dependencies": {
-    "express": "^4.17.2",
-    "knex": "^2.3.0",
-    "pg": "^8.11.3",
-    "react-router-dom": "^6.16.0",
-    "superagent": "7.1.1"
+    "extends": "@devacademy/eslint-config/react"
   },
   "devDependencies": {
     "@chakra-ui/icons": "^2.1.0",
@@ -43,7 +27,6 @@
     "@types/express": "^4.17.14",
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.7",
-    "@types/supertest": "^2.0.12",
     "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-c8": "^0.30.1",
     "eslint": "^8.10.0",
@@ -59,10 +42,8 @@
     "npm-run-all": "^4.1.5",
     "react": "^18.0.2",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
     "sass": "^1.62.1",
-    "sqlite3": "^5.1.2",
-    "supertest": "^6.2.2",
-    "ts-node": "^10.9.1",
     "typescript": "~4.8.4",
     "vite": "^4.3.3",
     "vitest": "^0.30.1"

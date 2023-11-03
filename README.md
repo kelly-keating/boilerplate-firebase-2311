@@ -2,6 +2,8 @@
 
 ## Getting started
 
+https://console.firebase.google.com/u/0/
+
 To prepare the project:
 
 ```bash
@@ -10,7 +12,7 @@ To prepare the project:
   npm run knex seed:run
 ```
 
-Running the following command will start the client running on [port 5173](http://localhost:5173) (and the server on 3000).
+Running the following command will start the client running on [port 5173](http://localhost:5173).
 
 ```bash
   npm run dev
@@ -23,8 +25,6 @@ Running the following command will start the client running on [port 5173](http:
 - React
 - React Router
 - Sass
-- Express
-- DB: PostgreSQL (deploy) & SQLite (dev)
 
 ## Adding modules
 
@@ -42,10 +42,4 @@ Running the following command will start the client running on [port 5173](http:
 
 ```bash
   npm i dotenv
-```
-
-in `server/server.ts`:
-
-```ts
-import 'dotenv/config'
 ```
