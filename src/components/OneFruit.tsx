@@ -1,8 +1,8 @@
-import { Fruit } from '../../models/fruits'
+import { Fruit } from '../models'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { deleteFruit, getOneFruit, updateFruit } from '../api/fruits'
+import { deleteFruit, getOneFruit, updateFruit } from '../firebase/db'
 
 function OneFruit() {
   const { id } = useParams() as { id: string }
@@ -12,9 +12,9 @@ function OneFruit() {
 
   useEffect(() => {
     getOneFruit(id)
-      .then((data) => setFruit(data))
+      .then((data) => data ? setFruit(data) : goTo('/'))
       .catch((err) => console.error(err))
-  }, [id])
+  }, [id, goTo])
 
   const upYum = () => id && fruit && changeRating(id, fruit.rating + 1)
   const downYum = () => id && fruit && changeRating(id, fruit.rating - 1)

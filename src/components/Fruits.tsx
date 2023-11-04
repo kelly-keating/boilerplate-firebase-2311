@@ -1,16 +1,14 @@
-import { Fruit } from '../../models/fruits'
+import { Fruit } from '../models'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { getFruits } from '../api/fruits'
+import { watchFruits } from '../firebase/db'
 
 function Fruits() {
   const [fruits, setFruits] = useState([] as Fruit[])
 
   useEffect(() => {
-    getFruits()
-      .then((data) => setFruits(data))
-      .catch((err) => console.error(err))
+    watchFruits((data) => setFruits(data))
   }, [])
 
   return (

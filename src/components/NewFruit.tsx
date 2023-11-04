@@ -1,7 +1,7 @@
 import { FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { addFruit } from '../api/fruits'
+import { createNewFruit } from '../firebase/db'
 
 function NewFruit() {
   const goTo = useNavigate()
@@ -16,7 +16,7 @@ function NewFruit() {
     if (isNaN(Number(rating)))
       return alert('Please enter a number for your rating')
 
-    addFruit({ name, rating })
+    createNewFruit({ name, rating })
       .then((fruit) => goTo('/' + fruit.id))
       .catch((err) => console.error(err))
   }
