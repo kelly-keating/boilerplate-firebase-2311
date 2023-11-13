@@ -12,7 +12,7 @@ function OneFruit() {
 
   useEffect(() => {
     getOneFruit(id)
-      .then((data) => data ? setFruit(data) : goTo('/'))
+      .then((data) => (data ? setFruit(data) : goTo('/')))
       .catch((err) => console.error(err))
   }, [id, goTo])
 
