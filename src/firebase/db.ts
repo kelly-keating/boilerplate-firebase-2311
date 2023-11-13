@@ -12,7 +12,7 @@ function watchData(path: string, cb: (data: any) => void) {
   const { uid } = getUser()
   if (!uid) return
   const theRef = ref(db, `users/${uid}/${path}`)
-  onValue(theRef, (snapshot) => cb(snapshot.val()))
+  onValue(theRef, (snapshot) => cb(snapshot.val() || []))
 }
 
 function getDataOnce(path: string) {

@@ -39,7 +39,7 @@ function Register() {
       <p>
         Returning user? <Link to="/log-in">Log in</Link>
       </p>
-    </div> 
+    </div>
   )
 }
 

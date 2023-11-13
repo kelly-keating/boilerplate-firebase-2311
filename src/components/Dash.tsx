@@ -1,35 +1,20 @@
-import { FirebaseUser } from '../models'
-import { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-import { getUser, signOut } from '../firebase/auth'
+import { signOut } from '../firebase/auth'
+import { useAuth } from '../firebase/AuthContext'
 
 function Dash() {
-  const [user, setUser] = useState(null as FirebaseUser | null)
-
-  useEffect(() => {
-    refreshUser()
-  }, [])
-
-  const refreshUser = () => {
-    try {
-      const u = getUser()
-      setUser(u)
-    } catch (err) {
-      const { message } = err as Error
-      console.log(message)
-    }
-  }
+  const user = useAuth()
 
   const removeUser = () => {
     signOut()
-    refreshUser()
   }
 
   return (
     <>
       <header>
         <h1>Fruits!</h1>
+        {user && <p>Welcome {user.displayName}</p>}
         <nav>
           <Link to="/">Home</Link>
           {' | '}
@@ -44,7 +29,7 @@ function Dash() {
         {user && <button onClick={removeUser}>Log out</button>}
       </header>
 
-      <Outlet context={{ user, refreshUser }} />
+      <Outlet />
     </>
   )
 }

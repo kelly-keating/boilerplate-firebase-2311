@@ -4,7 +4,7 @@ import {
   Navigate,
   Route,
 } from 'react-router-dom'
-import { getUser } from './firebase/auth'
+import { useAuth } from './firebase/AuthContext'
 
 import Dash from './components/Dash'
 import Fruits from './components/Fruits'
@@ -43,14 +43,8 @@ function AuthRoute({
   altElement = <Navigate to="/" replace />,
   noUser = false,
 }: AuthRouteProps) {
-  let loggedIn = false
-  try {
-    getUser()
-    loggedIn = true
-  } catch (err) {
-    console.log('no user')
-  }
+  const user = useAuth()
 
-  const showElem = noUser ? !loggedIn : loggedIn
+  const showElem = noUser ? !user : user
   return showElem ? element : altElement
 }

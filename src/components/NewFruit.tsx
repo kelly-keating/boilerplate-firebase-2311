@@ -10,11 +10,10 @@ function NewFruit() {
     evt.preventDefault()
     const form = evt.target as HTMLFormElement
     const name = form.newname.value
-    const rating = form.rating.value
+    const rating = Number(form.rating.value)
 
     if (!name) return alert('Please enter a fruit name')
-    if (isNaN(Number(rating)))
-      return alert('Please enter a number for your rating')
+    if (isNaN(rating)) return alert('Please enter a number for your rating')
 
     createNewFruit({ name, rating })
       .then((fruit) => goTo('/' + fruit.id))
